@@ -40,6 +40,7 @@ public class MainTasks {
       Common.consoleDelayedWriter(">Ok bye! :*\n");
    }
 
+   //Need camel case taskPanel
    static int taskpanel() {
       int x;
       Scanner scanner = new Scanner(System.in);

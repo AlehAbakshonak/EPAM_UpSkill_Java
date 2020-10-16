@@ -36,8 +36,12 @@ public class MainTask4 {
          Common.consoleDelayedWriter(">Gotcha, made it 4u❤: " + arrayMultiplyer(arrayForMultiplying));
          continueFlag = Common.YesOrNoChecker(scanner,
                "\n>Wanna make some more multiplying or we going back to Menu? y/n: ");
-         if (continueFlag == 0) break;
-         else arrayForMultiplying = emptyArray;
+         if (continueFlag == 0) {
+            break;
+         }
+         else {
+            arrayForMultiplying = emptyArray;
+         }
       }
    }
 

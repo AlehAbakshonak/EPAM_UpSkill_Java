@@ -23,7 +23,9 @@ public class OptionalTask1 {
    private static byte numOfEven = 0;
    private static byte numOfNotEven = 0;
 
+   //this variable shouldn't be constant. Constants are usually numbers or strings, not objects.
    private static final Scanner SCANNER = new Scanner(System.in);
+   //countAllValuesWidth would be better name :)
    private static final int doAllValuesWidth = NUM_OF_TECH_COLS + 10;
 
    static int[][] ArraySort(int[][] twoDimmArray, byte keyColumnForSorting) {
