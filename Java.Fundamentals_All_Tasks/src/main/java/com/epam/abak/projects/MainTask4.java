@@ -22,7 +22,7 @@ public class MainTask4 {
                   amountLimiter = 0;
                   break;
                } else {
-                  arrayForMultiplying[amountLimiter] = Common.bytecheckstr(consoleStr, (byte) 1, (byte) 40,
+                  arrayForMultiplying[amountLimiter] = Common.byteCheckString(consoleStr, (byte) 1, (byte) 40,
                         ">Woow, that's not a value, choose one from 1 to 40, buddy: ");
                   amountLimiter++;
                }
@@ -34,7 +34,7 @@ public class MainTask4 {
             }
          }
          Common.consoleDelayedWriter(">Gotcha, made it 4u❤: " + arrayMultiplyer(arrayForMultiplying));
-         continueFlag = Common.YesOrNoChecker(scanner,
+         continueFlag = Common.yesOrNoChecker(scanner,
                "\n>Wanna make some more multiplying or we going back to Menu? y/n: ");
          if (continueFlag == 0) {
             break;

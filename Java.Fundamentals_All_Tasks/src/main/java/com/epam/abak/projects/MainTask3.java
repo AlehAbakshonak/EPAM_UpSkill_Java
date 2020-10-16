@@ -12,14 +12,14 @@ public class MainTask3 {
       int consoleRowOrLine;
       do {
          Common.consoleDelayedWriter(">I will return so much randoms, as you wish (1-127): ");
-         consoleAmount = Common.bytecheck(scanner, 1, 127,
+         consoleAmount = Common.byteCheckScanner(scanner, 1, 127,
                ">Woow, that's not a value, pick on from 1 to 127, buddy: ");
          Common.consoleDelayedWriter(">Btw, scanner row(0) or scanner line(1)?: ");
-         consoleRowOrLine = Common.bytecheck(scanner, 0, 1,
+         consoleRowOrLine = Common.byteCheckScanner(scanner, 0, 1,
                ">Come on, if scanner row - type 0, if scanner line - 1: ");
          Common.consoleDelayedWriter(">Gotcha, made it 4u❤: ");
          consoleWriteAmountOfRandoms(consoleAmount, consoleRowOrLine);
-         continueFlag = Common.YesOrNoChecker(scanner,
+         continueFlag = Common.yesOrNoChecker(scanner,
                "\n>Wanna make some more randoms or we going back to Menu? y/n: ");
       } while (continueFlag != 0);
    }

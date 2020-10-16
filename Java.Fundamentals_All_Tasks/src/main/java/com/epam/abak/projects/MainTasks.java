@@ -8,7 +8,7 @@ public class MainTasks {
       int ch;
       boolean exit = false;
       do {
-         ch = taskpanel();
+         ch = taskPanel();
 
          switch (ch) {
             case 1:
@@ -24,7 +24,7 @@ public class MainTasks {
                MainTask4.multiply();
                break;
             case 5:
-               MainTask5.month_name();
+               MainTask5.monthName();
                break;
             case 6:
                OptionalTask1.start();
@@ -40,8 +40,7 @@ public class MainTasks {
       Common.consoleDelayedWriter(">Ok bye! :*\n");
    }
 
-   //Need camel case taskPanel
-   static int taskpanel() {
+   static int taskPanel() {
       int x;
       Scanner scanner = new Scanner(System.in);
       Common.consoleDelayedWriter(">Choose one of tasks to proceed:\n" +
@@ -54,7 +53,7 @@ public class MainTasks {
             ">  7. Runs Optional task 2\n" +
             ">  8. Exit\n" +
             ">  Your choice: ", (byte) 20);
-      x = Common.bytecheck(scanner, 1, 8, ">Woow, that's not a choice, choose one from 1 to 8, buddy: ");
+      x = Common.byteCheckScanner(scanner, 1, 8, ">Woow, that's not a choice, choose one from 1 to 8, buddy: ");
       return x;
    }
 

@@ -10,7 +10,7 @@ public class MainTask1 {
       do {
          Common.consoleDelayedWriter(">Enter user name: ");
          Common.consoleDelayedWriter(">Hello, " + scanner.nextLine() + "!");
-         continueFlag = Common.YesOrNoChecker(scanner,
+         continueFlag = Common.yesOrNoChecker(scanner,
                "\n>Wanna say hello to someone else or we going back to Menu? y/n: ");
       } while (continueFlag != 0);
    }

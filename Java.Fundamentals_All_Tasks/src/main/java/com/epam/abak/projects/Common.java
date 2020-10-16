@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Common {
 
-   //TODO Remove unnecessary comments
    static void consoleDelayedWriter(String s) {
       while (!s.equals("")) {
          System.out.print(s.charAt(0));
@@ -29,8 +28,7 @@ public class Common {
       }
    }
 
-   //Please use java naming convention. Methods should start from lower case yesOrNoChecker
-   static byte YesOrNoChecker(Scanner scanner, String questionMessage) {
+   static byte yesOrNoChecker(Scanner scanner, String questionMessage) {
       consoleDelayedWriter(questionMessage);
       String consoleAnswer;
       //why do you need byte format? Isn't int better?
@@ -53,8 +51,7 @@ public class Common {
       return answerFlag;
    }
 
-   //Please use java naming convention. Methods should be camel case byteCheck
-   static int bytecheck(Scanner scanner, int minBorder, int maxBorder, String errorMessage) {
+   static int byteCheckScanner(Scanner scanner, int minBorder, int maxBorder, String errorMessage) {
       int targetInt = -1;
       String targetStrFromConsole;
       while (true) {
@@ -71,8 +68,8 @@ public class Common {
       }
       return targetInt;
    }
-   //Please use java naming convention. Methods should be camel case byteCheckStr. Even byteCheckString would be better
-   static byte bytecheckstr(String targetStr, byte minBorder, byte maxBorder, String errorMessage) {
+
+   static byte byteCheckString(String targetStr, byte minBorder, byte maxBorder, String errorMessage) {
       byte ConsoleInput = -1;
       Scanner scanner = new Scanner(System.in);
       while (true) {

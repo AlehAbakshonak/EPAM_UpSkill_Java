@@ -22,11 +22,10 @@ public class OptionalTask1 {
    private static byte numOfNotUniqueDigits = 0;
    private static byte numOfEven = 0;
    private static byte numOfNotEven = 0;
+   
+   private static Scanner SCANNER = new Scanner(System.in);
 
-   //this variable shouldn't be constant. Constants are usually numbers or strings, not objects.
-   private static final Scanner SCANNER = new Scanner(System.in);
-   //countAllValuesWidth would be better name :)
-   private static final int doAllValuesWidth = NUM_OF_TECH_COLS + 10;
+   private static final int countAllValuesWidth = NUM_OF_TECH_COLS + 10;
 
    static int[][] ArraySort(int[][] twoDimmArray, byte keyColumnForSorting) {
       for (int searchStart = 0; searchStart < twoDimmArray.length; searchStart++) {
@@ -44,9 +43,9 @@ public class OptionalTask1 {
    }
 
    static int[] valueAnalyser() {
-      int[] doOneValue = new int[doAllValuesWidth]; //делаем заготовку для массива цифр
+      int[] doOneValue = new int[countAllValuesWidth]; //делаем заготовку для массива цифр
 
-      doOneValue[VAL_SELF] = Common.bytecheck(SCANNER, 1, 2147483646,
+      doOneValue[VAL_SELF] = Common.byteCheckScanner(SCANNER, 1, 2147483646,
             ">Woow, that's not a value, pick one from 1 to 2147483646, buddy: ");
       char[] consoleValueCharArr = String.valueOf(doOneValue[VAL_SELF]).toCharArray(); //разбиваем полученное число на массив чаров
       doOneValue[VAL_LENGTH] = (byte) consoleValueCharArr.length; //закидываем длину в заготовку для массива цифр
@@ -88,16 +87,16 @@ public class OptionalTask1 {
       int continueFlag = 0;
       do {
          Common.consoleDelayedWriter(">How many values should i take? (1-127): ");
-         int consoleNumOfValues = Common.bytecheck(SCANNER, 1,
+         int consoleNumOfValues = Common.byteCheckScanner(SCANNER, 1,
                127, ">Woow, that's not a value, pick on from 1 to 127, buddy: ");
          Common.consoleDelayedWriter(">Okay, start to enter them by one (1-2147483646): ");
 
-         int[][] doAllValues = new int[consoleNumOfValues][doAllValuesWidth];
-         int[][] doAllValuesSorted;
+         int[][] countAllValues = new int[consoleNumOfValues][countAllValuesWidth];
+         int[][] countAllValuesSorted;
 
          for ( int i = 0; i < consoleNumOfValues; i++) {
 
-            doAllValues[i] = valueAnalyser();
+            countAllValues[i] = valueAnalyser();
 
             if (i < consoleNumOfValues - 1) {
                Common.consoleDelayedWriter(">An' anoder one: ");
@@ -107,9 +106,9 @@ public class OptionalTask1 {
 
          }
 
-         doAllValuesSorted = doAllValues;
+         countAllValuesSorted = countAllValues;
 
-         doAllValuesSorted = ArraySort(doAllValuesSorted, (byte) VAL_LENGTH);
+         countAllValuesSorted = ArraySort(countAllValuesSorted, (byte) VAL_LENGTH);
 
          String msgForTask2pt1 = "";
          String msgForTask2pt2 = "";
@@ -126,58 +125,58 @@ public class OptionalTask1 {
 
             if (i < consoleNumOfValues - 1) {
                msgForTask2pt1 +=
-                     doAllValues[i][VAL_SELF] +
-                           " (" + doAllValuesSorted[i][VAL_LENGTH] + "), ";
+                     countAllValues[i][VAL_SELF] +
+                           " (" + countAllValuesSorted[i][VAL_LENGTH] + "), ";
             }
 
-            if ((doAllValues[i][VAL_LENGTH] > averageLengthOfValues) &&
+            if ((countAllValues[i][VAL_LENGTH] > averageLengthOfValues) &&
                   (i < consoleNumOfValues - 1)) {
                msgForTask3 +=
-                     doAllValues[i][VAL_SELF] +
-                           " (" + doAllValues[i][VAL_LENGTH] + "), ";
+                     countAllValues[i][VAL_SELF] +
+                           " (" + countAllValues[i][VAL_LENGTH] + "), ";
             }
 
-            if ((doAllValues[i][VAL_GROWS] != -1) &&
+            if ((countAllValues[i][VAL_GROWS] != -1) &&
                   (isValDigitsGrows == 0) &&
-                  (doAllValues[i][VAL_LENGTH] > 1)) {
-               isValDigitsGrows = doAllValues[i][VAL_SELF];
+                  (countAllValues[i][VAL_LENGTH] > 1)) {
+               isValDigitsGrows = countAllValues[i][VAL_SELF];
             }
 
-            if ((doAllValues[i][VAL_UNIQ] == doAllValues[i][0]) &&
-                  (doAllValues[i][VAL_LENGTH] > 1)) {
-               isValDigitsFullUniq = doAllValues[i][VAL_SELF];
+            if ((countAllValues[i][VAL_UNIQ] == countAllValues[i][0]) &&
+                  (countAllValues[i][VAL_LENGTH] > 1)) {
+               isValDigitsFullUniq = countAllValues[i][VAL_SELF];
             }
 
-            if (doAllValues[i][VAL_EVEN] == doAllValues[i][VAL_LENGTH]) { //5.1 четные = длина
+            if (countAllValues[i][VAL_EVEN] == countAllValues[i][VAL_LENGTH]) { //5.1 четные = длина
                ValueEvenDigitsCounter++;
             }
-            if (doAllValues[i][VAL_EVEN] == doAllValues[i][VAL_NOT_EVEN]) { //5.2 четные = нечетные
+            if (countAllValues[i][VAL_EVEN] == countAllValues[i][VAL_NOT_EVEN]) { //5.2 четные = нечетные
                isEvenEqualsNotEven++;
             }
          }
          msgForTask2pt1 +=
-               doAllValues[consoleNumOfValues - 1][VAL_SELF] +
-                     " (" + doAllValuesSorted[consoleNumOfValues - 1][VAL_LENGTH] + ")"; //2
+               countAllValues[consoleNumOfValues - 1][VAL_SELF] +
+                     " (" + countAllValuesSorted[consoleNumOfValues - 1][VAL_LENGTH] + ")"; //2
 
          msgForTask3 +=
-               doAllValues[consoleNumOfValues - 1][VAL_SELF] +
-                     " (" + doAllValues[consoleNumOfValues - 1][VAL_LENGTH] + ")"; //3
+               countAllValues[consoleNumOfValues - 1][VAL_SELF] +
+                     " (" + countAllValues[consoleNumOfValues - 1][VAL_LENGTH] + ")"; //3
 
          for (int i = consoleNumOfValues - 1; i >= 0; i--) {
 
             if (i > 0) {
                msgForTask2pt2 +=
-                     doAllValues[i][VAL_SELF] +
-                           " (" + doAllValuesSorted[i][VAL_LENGTH] + "), ";
+                     countAllValues[i][VAL_SELF] +
+                           " (" + countAllValuesSorted[i][VAL_LENGTH] + "), ";
             }
 
-            if ((doAllValues[i][VAL_UNIQ] < minOfUniqDigits) &&
-                  (doAllValues[i][VAL_LENGTH] > 1)) { //4
-               minOfUniqDigits = doAllValues[i][VAL_UNIQ];
-               MinUniqueDigitsVal = doAllValues[i][VAL_SELF];
+            if ((countAllValues[i][VAL_UNIQ] < minOfUniqDigits) &&
+                  (countAllValues[i][VAL_LENGTH] > 1)) { //4
+               minOfUniqDigits = countAllValues[i][VAL_UNIQ];
+               MinUniqueDigitsVal = countAllValues[i][VAL_SELF];
             }
          }
-         msgForTask2pt2 += doAllValues[0][VAL_SELF] + " (" + doAllValuesSorted[0][VAL_LENGTH] + ")"; //2
+         msgForTask2pt2 += countAllValues[0][VAL_SELF] + " (" + countAllValuesSorted[0][VAL_LENGTH] + ")"; //2
 
          Common.consoleDelayedWriter(">1. Shortest: " + minLengthValue +
                " (" + minLengthOfValues + "); Longest: " + maxLengthValue + " (" + maxLengthOfValues + ");\n");
@@ -196,7 +195,7 @@ public class OptionalTask1 {
          if (isValDigitsFullUniq != 0) Common.consoleDelayedWriter(">7. Value with full-unique numbers: " +
                isValDigitsFullUniq + ";\n");
          else Common.consoleDelayedWriter(">7. Value with full-unique numbers: absent;\n");
-         continueFlag = Common.YesOrNoChecker(SCANNER, "\n>Wanna make some more randoms or we going back to Menu? y/n: ");
+         continueFlag = Common.yesOrNoChecker(SCANNER, "\n>Wanna make some more randoms or we going back to Menu? y/n: ");
       } while (continueFlag != 0);
    }
 }
