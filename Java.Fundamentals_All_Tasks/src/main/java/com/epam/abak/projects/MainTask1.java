@@ -8,10 +8,10 @@ public class MainTask1 {
       Scanner scanner = new Scanner(System.in);
       byte continueFlag;
       do {
-         Common.consoleDelayedWriter(">Enter user name: ");
-         Common.consoleDelayedWriter(">Hello, " + scanner.nextLine() + "!");
+         Common.consoleDelayedWriter("> Enter user name: ");
+         Common.consoleDelayedWriter("> Hello, " + scanner.nextLine() + "!");
          continueFlag = Common.yesOrNoChecker(scanner,
-               "\n>Wanna say hello to someone else or we going back to Menu? y/n: ");
+               "\n> Wanna say hello to someone else or we going back to Menu? y/n: ");
       } while (continueFlag != 0);
    }
 }

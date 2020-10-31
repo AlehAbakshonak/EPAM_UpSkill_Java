@@ -8,10 +8,10 @@ public class MainTask2 {
       Scanner scanner = new Scanner(System.in);
       byte continueFlag;
       do {
-         Common.consoleDelayedWriter(">I will invert everything you say, bud: ");
-         Common.consoleDelayedWriter(">Made it 4u❤: " + invertString(scanner.nextLine()));
+         Common.consoleDelayedWriter("> I will invert everything you say, bud: ");
+         Common.consoleDelayedWriter("> Made it 4u❤: " + invertString(scanner.nextLine()));
          continueFlag = Common.yesOrNoChecker(scanner,
-               "\n>Wanna invert something else or we going back to Menu? y/n: ");
+               "\n> Wanna invert something else or we going back to Menu? y/n: ");
       } while (continueFlag != 0);
    }
 

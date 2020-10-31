@@ -22,7 +22,7 @@ public class OptionalTask1 {
    private static byte numOfNotUniqueDigits = 0;
    private static byte numOfEven = 0;
    private static byte numOfNotEven = 0;
-   
+
    private static Scanner SCANNER = new Scanner(System.in);
 
    private static final int countAllValuesWidth = NUM_OF_TECH_COLS + 10;
@@ -46,7 +46,7 @@ public class OptionalTask1 {
       int[] doOneValue = new int[countAllValuesWidth]; //делаем заготовку для массива цифр
 
       doOneValue[VAL_SELF] = Common.byteCheckScanner(SCANNER, 1, 2147483646,
-            ">Woow, that's not a value, pick one from 1 to 2147483646, buddy: ");
+            "> Woow, that's not a value, pick one from 1 to 2147483646, buddy: ");
       char[] consoleValueCharArr = String.valueOf(doOneValue[VAL_SELF]).toCharArray(); //разбиваем полученное число на массив чаров
       doOneValue[VAL_LENGTH] = (byte) consoleValueCharArr.length; //закидываем длину в заготовку для массива цифр
 
@@ -86,10 +86,13 @@ public class OptionalTask1 {
 
       int continueFlag = 0;
       do {
-         Common.consoleDelayedWriter(">How many values should i take? (1-127): ");
-         int consoleNumOfValues = Common.byteCheckScanner(SCANNER, 1,
-               127, ">Woow, that's not a value, pick on from 1 to 127, buddy: ");
-         Common.consoleDelayedWriter(">Okay, start to enter them by one (1-2147483646): ");
+         int consoleNumOfValues = Common.consoleVarInput(
+               1,
+               127,
+               "> How many values should i take? (1-127): ",
+               "> Woow, that's not a value, pick on from 1 to 127, buddy: ",
+               "> Okay, start to enter them by one (1-2147483646): "
+         );
 
          int[][] countAllValues = new int[consoleNumOfValues][countAllValuesWidth];
          int[][] countAllValuesSorted;
@@ -99,9 +102,9 @@ public class OptionalTask1 {
             countAllValues[i] = valueAnalyser();
 
             if (i < consoleNumOfValues - 1) {
-               Common.consoleDelayedWriter(">An' anoder one: ");
+               Common.consoleDelayedWriter("> An' anoder one: ");
             } else {
-               Common.consoleDelayedWriter(">That's enough, " + consoleNumOfValues + " values are already here!\n");
+               Common.consoleDelayedWriter("> That's enough, " + consoleNumOfValues + " values are already here!\n");
             }
 
          }
@@ -178,24 +181,24 @@ public class OptionalTask1 {
          }
          msgForTask2pt2 += countAllValues[0][VAL_SELF] + " (" + countAllValuesSorted[0][VAL_LENGTH] + ")"; //2
 
-         Common.consoleDelayedWriter(">1. Shortest: " + minLengthValue +
+         Common.consoleDelayedWriter("> 1. Shortest: " + minLengthValue +
                " (" + minLengthOfValues + "); Longest: " + maxLengthValue + " (" + maxLengthOfValues + ");\n");
-         Common.consoleDelayedWriter(">2.1 Growing lengths order: " + msgForTask2pt1 + ");\n");
-         Common.consoleDelayedWriter(">2.1 Decreasing lengths order: " + msgForTask2pt2 + ");\n");
-         Common.consoleDelayedWriter(">3. Average length: " + averageLengthOfValues +
+         Common.consoleDelayedWriter("> 2.1 Growing lengths order: " + msgForTask2pt1 + ");\n");
+         Common.consoleDelayedWriter("> 2.1 Decreasing lengths order: " + msgForTask2pt2 + ");\n");
+         Common.consoleDelayedWriter("> 3. Average length: " + averageLengthOfValues +
                "; List of values, longer than average: " + msgForTask3 + ";\n");
-         Common.consoleDelayedWriter(">4. Minimal amount of unique numbers: " +
+         Common.consoleDelayedWriter("> 4. Minimal amount of unique numbers: " +
                MinUniqueDigitsVal + " (" + minOfUniqDigits + ");\n");
-         Common.consoleDelayedWriter(">5.1. Amount of values with full-even numbers: " + ValueEvenDigitsCounter + ";\n");
-         Common.consoleDelayedWriter(">5.2. Amount of values scanner which even and uneven numbers are equal: " +
+         Common.consoleDelayedWriter("> 5.1. Amount of values with full-even numbers: " + ValueEvenDigitsCounter + ";\n");
+         Common.consoleDelayedWriter("> 5.2. Amount of values scanner which even and uneven numbers are equal: " +
                isEvenEqualsNotEven + ";\n");
          if (isValDigitsGrows != 0) Common.consoleDelayedWriter(">6. First value with instantly growing numbers: " +
                isValDigitsGrows + ";\n");
-         else Common.consoleDelayedWriter(">6. First value with instantly growing numbers: absent;\n");
+         else Common.consoleDelayedWriter("> 6. First value with instantly growing numbers: absent;\n");
          if (isValDigitsFullUniq != 0) Common.consoleDelayedWriter(">7. Value with full-unique numbers: " +
                isValDigitsFullUniq + ";\n");
-         else Common.consoleDelayedWriter(">7. Value with full-unique numbers: absent;\n");
-         continueFlag = Common.yesOrNoChecker(SCANNER, "\n>Wanna make some more randoms or we going back to Menu? y/n: ");
+         else Common.consoleDelayedWriter("> 7. Value with full-unique numbers: absent;\n");
+         continueFlag = Common.yesOrNoChecker(SCANNER, "\n> Wanna make some more randoms or we going back to Menu? y/n: ");
       } while (continueFlag != 0);
    }
 }

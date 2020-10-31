@@ -11,16 +11,28 @@ public class MainTask3 {
       int consoleAmount;
       int consoleRowOrLine;
       do {
-         Common.consoleDelayedWriter(">I will return so much randoms, as you wish (1-127): ");
-         consoleAmount = Common.byteCheckScanner(scanner, 1, 127,
-               ">Woow, that's not a value, pick on from 1 to 127, buddy: ");
-         Common.consoleDelayedWriter(">Btw, scanner row(0) or scanner line(1)?: ");
-         consoleRowOrLine = Common.byteCheckScanner(scanner, 0, 1,
-               ">Come on, if scanner row - type 0, if scanner line - 1: ");
-         Common.consoleDelayedWriter(">Gotcha, made it 4u❤: ");
+         consoleAmount = Common.consoleVarInput(
+               1,
+               127,
+               "> I will return so much randoms, as you wish (1-127): ",
+               "> Woow, that's not a value, pick on from 1 to 127, buddy: ",
+               ""
+         );
+
+         consoleRowOrLine = Common.consoleVarInput(
+               0,
+               1,
+               "> Btw, scanner row(0) or scanner line(1)?: ",
+               "> Come on, if scanner row - type 0, if scanner line - 1: ",
+               "> Gotcha, made it 4u❤: "
+         );
+
          consoleWriteAmountOfRandoms(consoleAmount, consoleRowOrLine);
-         continueFlag = Common.yesOrNoChecker(scanner,
-               "\n>Wanna make some more randoms or we going back to Menu? y/n: ");
+
+         continueFlag = Common.yesOrNoChecker(
+               scanner,
+               "\n> Wanna make some more randoms or we going back to Menu? y/n: "
+         );
       } while (continueFlag != 0);
    }
 

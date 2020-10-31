@@ -4,6 +4,19 @@ import java.util.Scanner;
 
 public class Common {
 
+   static int consoleVarInput(int minBorber, int maxBorder, String requestText, String errorText, String proceedText) {
+
+      Scanner scanner = new Scanner(System.in);
+
+      Common.consoleDelayedWriter(requestText);
+      int consoleInput = Common.byteCheckScanner(scanner, minBorber, maxBorder, errorText);
+      if (!proceedText.equals("")) {
+         Common.consoleDelayedWriter(proceedText);
+      }
+
+      return consoleInput;
+   }
+
    static void consoleDelayedWriter(String s) {
       while (!s.equals("")) {
          System.out.print(s.charAt(0));
@@ -85,5 +98,52 @@ public class Common {
          targetStr = scanner.nextLine();
       }
       return ConsoleInput;
+   }
+
+   static String oneDimmArrToString(int[] inputMatrix) {
+      String resultString = String.valueOf(inputMatrix[0]);
+      for (int i = 1; i < inputMatrix.length; i++) {
+         resultString += ", " + inputMatrix[i];
+      }
+      return resultString;
+   }
+
+   static String twoDimmArrToString(int[][] inputMatrix) {
+      String resultString = "";
+
+      for (int i = 0; i < inputMatrix.length; i++) {
+         resultString += "   ";
+         for (int j = 0; j < inputMatrix[i].length - 1; j++) {
+            int ijLength = String.valueOf(inputMatrix[i][j]).length();
+            if (ijLength < 4) {
+               for (int k = 0; k < 4-ijLength; k++) {
+                  resultString += " ";
+               }
+            }
+            resultString += inputMatrix[i][j] + " | ";
+         }
+         resultString += inputMatrix[i][inputMatrix[0].length-1] + "\n";
+      }
+      return resultString;
+   }
+
+   static boolean intToBoolean(int input) {
+      if ((input == 0) || (input == 1)) {
+         return input != 0;
+      } else {
+         throw new IllegalArgumentException("> intToBoolean: Just pick on from 0 to 1, buddy");
+      }
+   }
+
+   static int[][] transposeMatrix(int[][] inputMatrix) {
+
+      int[][] transposedMatrix = new int[inputMatrix.length][inputMatrix[0].length];
+
+      for (int i = 0; i < inputMatrix.length; i++) {
+         for (int j = 0; j < inputMatrix[i].length; j++) {
+            transposedMatrix[i][j] = inputMatrix[j][i];
+         }
+      }
+      return transposedMatrix;
    }
 }
