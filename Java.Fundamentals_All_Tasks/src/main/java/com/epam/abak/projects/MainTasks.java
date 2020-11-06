@@ -43,6 +43,9 @@ public class MainTasks {
    static int taskPanel() {
       int x;
       Scanner scanner = new Scanner(System.in);
+      Common.consoleDelayedWriter(11 % 5 +"\n");
+      Common.consoleDelayedWriter(6 % 5 +"\n");
+      Common.consoleDelayedWriter(1 % 5 +"\n");
       Common.consoleDelayedWriter("> Choose one of tasks to proceed:\n" +
             ">   1. Says Hello to every user, which name is entered;\n" +
             ">   2. Returns console arguments scanner negative order;\n" +
