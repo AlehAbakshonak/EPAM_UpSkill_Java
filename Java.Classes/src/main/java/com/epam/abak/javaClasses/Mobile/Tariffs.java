@@ -2,20 +2,20 @@ package com.epam.abak.javaClasses.Mobile;
 
 public class Tariffs {
 
-   private int ID;
+   private int id;
    private String name;
    private int cityCost;
    private int intercityCost;
 
-   public Tariffs(int ID, String name, int cityCost, int intercityCost) {
-      this.ID = ID;
+   public Tariffs(int id, String name, int cityCost, int intercityCost) {
+      this.id = id;
       this.name = name;
       this.cityCost = cityCost;
       this.intercityCost = intercityCost;
    }
 
-   public int getID() {
-      return ID;
+   public int getId() {
+      return id;
    }
 
    public String getName() {
@@ -30,8 +30,8 @@ public class Tariffs {
       return intercityCost;
    }
 
-   public void setID(int ID) {
-      this.ID = ID;
+   public void setId(int id) {
+      this.id = id;
    }
 
    public void setName(String name) {

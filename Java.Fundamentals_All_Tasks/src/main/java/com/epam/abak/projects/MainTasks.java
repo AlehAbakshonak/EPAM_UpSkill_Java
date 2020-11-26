@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class MainTasks {
 
    public static void main(String[] args) {
-      int ch;
+      int taskChoice;
       boolean exit = false;
       do {
-         ch = taskPanel();
+         taskChoice = taskPanel();
 
-         switch (ch) {
+         switch (taskChoice) {
             case 1:
                MainTask1.hello();
                break;
@@ -43,9 +43,6 @@ public class MainTasks {
    static int taskPanel() {
       int x;
       Scanner scanner = new Scanner(System.in);
-      Common.consoleDelayedWriter(11 % 5 +"\n");
-      Common.consoleDelayedWriter(6 % 5 +"\n");
-      Common.consoleDelayedWriter(1 % 5 +"\n");
       Common.consoleDelayedWriter("> Choose one of tasks to proceed:\n" +
             ">   1. Says Hello to every user, which name is entered;\n" +
             ">   2. Returns console arguments scanner negative order;\n" +
@@ -56,7 +53,12 @@ public class MainTasks {
             ">   7. Runs Optional task 2\n" +
             ">   8. Exit\n" +
             ">   Your choice: ", (byte) 20);
-      x = Common.byteCheckScanner(scanner, 1, 8, "> Woow, that's not a choice, choose one from 1 to 8, buddy: ");
+      x = Common.byteCheckScanner(
+            scanner,
+            1,
+            8,
+            "> Woow, that's not a choice, choose one from 1 to 8, buddy: "
+      );
       return x;
    }
 

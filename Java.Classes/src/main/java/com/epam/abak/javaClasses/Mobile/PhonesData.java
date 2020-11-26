@@ -9,7 +9,7 @@ public class PhonesData {
       String[] resultArray = new String[phoneBook.size()];
 
       for (int i = 0; i < phoneBook.size(); i++) {
-         resultArray[i] = Phone.getMainPhoneDataInString(phoneBook.get(i));
+         resultArray[i] = Phone.toString(phoneBook.get(i));
          }
 
       return resultArray;
@@ -18,7 +18,7 @@ public class PhonesData {
    public static int[] getIDFromList(List<Phone>phoneBook) {
       int[] array = new int[phoneBook.size()];
       for (int i = 0; i < array.length; i++) {
-         array[i] = phoneBook.get(i).getID();
+         array[i] = phoneBook.get(i).getId();
       }
       return array;
    }

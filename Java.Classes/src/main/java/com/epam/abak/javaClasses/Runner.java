@@ -3,9 +3,6 @@ import com.epam.abak.javaClasses.Mobile.Phone;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Hello world!
- */
 public class Runner {
 
    public static void main(String[] args) {
@@ -29,23 +26,17 @@ public class Runner {
 
       System.out.println(
             "summaryCallTimeMoreThan\n"+
-            Common.stringArrayToString(
-                  Analyser.summaryCallTimeMoreThan(phoneBook, 400)
-            )
+            Common.stringArrayToString(Analyser.summaryCallTimeMoreThan(phoneBook, 400))
       );
 
       System.out.println(
             "cityCallTimeMoreThan\n"+
-            Common.stringArrayToString(
-                  Analyser.interCityCallsUsedPhones(phoneBook)
-            )
+            Common.stringArrayToString(Analyser.interCityCallsUsedPhones(phoneBook))
       );
 
       System.out.println(
             "sortListByID\n"+
-            Common.stringArrayToString(
-                  Analyser.sortListByID(phoneBook)
-            )
+            Common.stringArrayToString(Analyser.sortListByID(phoneBook))
       );
    }
 }

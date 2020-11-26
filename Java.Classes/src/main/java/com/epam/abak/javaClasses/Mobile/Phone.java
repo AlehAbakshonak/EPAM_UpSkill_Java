@@ -1,7 +1,7 @@
 package com.epam.abak.javaClasses.Mobile;
 
 public class Phone {
-   private int ID;
+   private int id;
    private int debit;
    private int credit;
    private int cityCalls;
@@ -13,7 +13,7 @@ public class Phone {
    private String address;
    private String creditCard;
 
-   public Phone(int ID,
+   public Phone(int id,
                 int debit,
                 int credit,
                 int cityCalls,
@@ -23,7 +23,7 @@ public class Phone {
                 String patronymic,
                 String address,
                 String creditCard) {
-      this.ID = ID;
+      this.id = id;
       this.debit = debit;
       this.credit = credit;
       this.cityCalls = cityCalls;
@@ -36,9 +36,9 @@ public class Phone {
       this.creditCard = creditCard;
    }
 
-   public static String getMainPhoneDataInString(Phone phone) {
+   public static String toString(Phone phone) {
       return String.format("ID: %d | Full name: %s %s %s | Number: +%d",
-            phone.getID(),
+            phone.getId(),
             phone.getSurname(),
             phone.getName(),
             phone.getPatronymic(),
@@ -47,8 +47,8 @@ public class Phone {
    }
 
 
-   public void setID(int id) {
-      this.ID = id;
+   public void setId(int id) {
+      this.id = id;
    }
 
    public void setDebit(int debit) {
@@ -91,8 +91,8 @@ public class Phone {
       this.creditCard = creditCard;
    }
 
-   public int getID() {
-      return this.ID;
+   public int getId() {
+      return this.id;
    }
 
    public int getDebit() {
